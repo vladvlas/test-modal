@@ -18,17 +18,15 @@
                     <img src="./img/slider-item.jpg" alt="Kembang Flower Mantap">
                 </div>
                 <div class="slider__content">
-                    <button class="slider__btn--form">
+                    <a class="slider__btn--form form-link" href="#modal">
                         Форма
-                    </button>
-                    <!-- <div class="slider__text"> -->
+                    </a>
                         <a class="slider__title" href="#">
                             Kembang Flower Mantap
                         </a>
                         <p class="slider__descr">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                         </p>
-                    <!-- </div> -->
                     <div class="slider__btns">
                         <button class="slider__btn slider__btn--prev btn">
                             <span class="btn__span btn__span--prev">
@@ -150,7 +148,28 @@
         </div>
     </section>
 
-
+    <div class="modal" id="modal">
+            <form class="modal__form form">
+                <button class="form__close close"></button>
+                <div class="form__logo"></div>
+                <h3 class="form__title">
+                    Form
+                </h3>
+                <p class="form__descr">
+                    Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry
+                </p>
+                <input type="text" class="form__input" placeholder="Name">
+                <input type="text" class="form__input" placeholder="Phone">
+                <div class="form__btns">
+                    <button class="form__btn form__btn--secondary">
+                        Cancel
+                    </button>
+                    <button class="form__btn form__btn--primary">
+                        Send
+                    </button>
+                </div>
+            </form>
+    </div>
 
 
     <script src="main.js"></script>

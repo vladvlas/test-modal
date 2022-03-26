@@ -9,6 +9,8 @@ $btn-next-color: #f2f2f2;
 $black: #000;
 $light-black: #333;
 
+$transition: .2s;
+
 
 @font-face {
 	font-family: 'Montserrat'; 
@@ -39,6 +41,10 @@ $light-black: #333;
     font-weight: 400;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     max-width: 1300px;
     padding: 0 10px;
@@ -51,6 +57,155 @@ $light-black: #333;
     padding: 0 10px;
     margin: 0 auto;
 }
+
+//slider
+
+.slider {
+    margin-bottom: 140px;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__img {
+        max-width: 608px;
+        width: 100%;
+        height: 740px;
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: end;
+        max-width: 672px;
+        width: 100%;
+        padding-left: 32px;
+        padding-top: 40px;
+    }
+
+    &__title {
+        text-decoration: none;
+        max-width: 523px;
+        width: 100%;
+        margin-bottom: 24px;
+        font-weight: 500;
+        font-size: 68px;
+        line-height: 83px;
+        color: $main-color;
+    }
+
+    &__descr {
+        max-width: 493px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    &__btns {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        max-width: 640px;
+        width: 100%;
+        bottom: 0;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-left: 50px;
+        max-width: 320px;
+        width: 100%;
+        height: 160px;
+        border: none;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 39px;
+        cursor: pointer;
+
+        &--prev {
+            color: $main-color;
+            background-color: $background-color;
+        }
+
+        &--next {
+            color: $background-color;
+            background-color: $main-color;
+        }
+
+        &--form {
+            position: absolute;
+            right: 0;
+            top: 40px;
+            padding: 8px 32px;
+            border: none;
+            font-weight: 700;
+            font-size: 14px;
+            color: $background-color;
+            background-color: $main-color;
+            cursor: pointer;
+        }
+    }
+}
+
+.btn__span {
+    position: relative;
+    text-align: left;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    
+
+    &--prev {
+        padding-left: 40px;
+        color: $light-black;
+        opacity: 0.5;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 19px;
+            top: 0;
+            left: 4px;
+            top: 5px;
+            color: $light-black;
+            opacity: 0.5;
+            background-image: url(/img/icons/arrow-left.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+    }
+
+    &--next {
+        color: $btn-next-color;
+        opacity: 0.5;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 19px;
+            top: 0;
+            right: -37px;
+            top: 5px;
+            color: $light-black;
+            background-image: url(/img/icons/arrow-right.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+//info
 
 .info {
     margin-bottom: 80px;
@@ -131,6 +286,8 @@ $light-black: #333;
 
 }
 
+//featured plants
+
 .featured-plants {
 
     &__top {
@@ -192,152 +349,106 @@ $light-black: #333;
 
 }
 
-//slider
+//modal
 
-.slider {
-    margin-bottom: 140px;
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //visibility: hidden;
+    background-color: rgba(0,0,0, .5);
+    //opacity: 0;
+    transition: $transition;
 
-    &__item {
-        display: flex;
-        justify-content: space-between;
-        //align-items: center;
+}
 
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 470px;
+    width: 100%;
+    padding: 41px 40px;
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    transition: $transition;
+    transform: translateY(-50px);
+
+
+    &__close {
+        position: absolute;
+        top: 23px;
+        right: 23px;
+        width: 11px;
+        height: 11px;
+        border: none;
+        background-color: $background-color;
+        background-image: url(/img/icons/exit.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
     }
 
-    &__img {
-        max-width: 608px;
-        width: 100%;
-        height: 740px;
-    }
+    &__logo {
+        width: 91px;
+        height: 91px;
+        margin-bottom: 19px;
+        border-radius: 50%;
+        background-color: $main-color;
+        background-image: url(/img/icons/location.svg);
+        background-position: center;
+        background-repeat: no-repeat;
 
-    &__content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: end;
-        max-width: 672px;
-        width: 100%;
-        padding-left: 32px;
-        padding-top: 40px;
     }
 
     &__title {
-        text-decoration: none;
-        max-width: 523px;
-        width: 100%;
-        margin-bottom: 24px;
-        font-weight: 500;
-        font-size: 68px;
-        line-height: 83px;
-        color: $main-color;
+        font-weight: 700;
+        font-size: 21px; 
+        margin-bottom: 10px;   
     }
 
     &__descr {
-        max-width: 493px;
-        width: 100%;
         font-weight: 400;
-        font-size: 18px;
-        line-height: 32px;
+        font-size: 17px;
+        line-height: 121.5%;
+        margin-bottom: 40px;
+    }
+
+    &__input {
+        max-width: 390px;
+        width: 100%;
+        padding: 9px 16px;
+        margin-bottom: 14px;
+        border: 1px solid $border-color;
+
     }
 
     &__btns {
-        position: absolute;
         display: flex;
-        justify-content: space-between;
-        max-width: 640px;
+        max-width: 390px;
         width: 100%;
-        bottom: 0;
+        justify-content: space-between;
+        align-items: center;
     }
 
     &__btn {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-        padding-left: 50px;
-        max-width: 320px;
-        width: 100%;
-        height: 160px;
+        display: block;
         border: none;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 39px;
+        padding: 9px 54px;
         cursor: pointer;
 
-        &--prev {
-            color: $main-color;
-            //background-color: $background-color;
-        }
-
-        &--next {
-            color: $background-color;
+        &--primary {
             background-color: $main-color;
-        }
-
-        &--form {
-            position: absolute;
-            right: 0;
-            top: 40px;
-            padding: 8px 32px;
-            border: none;
-            font-weight: 700;
-            font-size: 14px;
             color: $background-color;
-            background-color: $main-color;
-            cursor: pointer;
         }
     }
 }
 
-.btn__span {
-    position: relative;
-    //display: block;
-    text-align: left;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-    
-
-    &--prev {
-        padding-left: 40px;
-        color: $light-black;
-        opacity: 0.5;
-
-        &::before {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 19px;
-            top: 0;
-            left: 4px;
-            top: 5px;
-            color: $light-black;
-            opacity: 0.5;
-            background-image: url(/img/icons/arrow-left.svg);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        
-    }
-
-    &--next {
-        color: $btn-next-color;
-        opacity: 0.5;
-
-        &::before {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 19px;
-            top: 0;
-            right: -37px;
-            top: 5px;
-            color: $light-black;
-            background-image: url(/img/icons/arrow-right.svg);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    }
-}
