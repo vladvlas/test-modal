@@ -293,8 +293,17 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
+  visibility: hidden;
   background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
   transition: 0.2s;
+}
+.modal--active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal--active .form {
+  transform: translateY(0);
 }
 
 .form {
