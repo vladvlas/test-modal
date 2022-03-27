@@ -72,14 +72,34 @@ const sendBtn = document.querySelector('send');
 //sendBtn.preventDefault();
 
 const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+const url = 'https://jsonplaceholder.typicode.com/todos'
 
-const mess = `<span>Error</span>`
+const getResourse = async (url) => {
+    
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const sortedData =  await data.filter(el => el.userId == 5 && el.completed == true)
+        return sortedData
+    }
+    catch(e) {
+        document.querySelector('.form').innerHTML = `<div>${e}</div>`
+    }
+    
 
+
+
+}
 
 
 document.querySelector('.send').onclick = (event) => {
+    const form = document.querySelector('.form');
     const name = document.querySelector('.name');
     const phone = document.querySelector('.phone');
+    const logo = document.querySelector('.form__logo');
+    const btns = document.querySelector('.form__btns');
+    const title = document.querySelector('.form__title');
+    const descr = document.querySelector('.form__descr');
     const spanName = document.querySelector('.name__span');
     const spanPhone = document.querySelector('.phone__span');
 
@@ -98,7 +118,45 @@ document.querySelector('.send').onclick = (event) => {
     else {
         valide(name, spanName, '')
     }
+
+    if (validatePhone(regex, phone.value) && validateName(name.value)) {
+        name.style.display = 'none';
+        phone.style.display = 'none';
+        logo.style.display = 'none';
+        title.style.display = 'none';
+        descr.style.display = 'none';
+        btns.style.display = 'none';
+
+        renderPosts(url);
+    }
+
+
+    async function renderPosts(url) {
+        const posts = await getResourse(url);
+        form.style.maxWidth = '1000px';
+        document.querySelector('.form__headers').style.display = 'flex'
+        console.log(posts);
+
+        posts.map((post) => {
+            form.insertAdjacentHTML('beforeend', 
+            `<div class="posts__post">
+                <div class="posts__user">${post.userId}</div>
+                <div class="posts__id">${post.id}</div>
+                <div class="posts__title">${post.title}</div>
+                <div class="posts__completed">${post.completed}</div>
+            </div>`)
+        })
+        
+
+    }
+
+    
+    
+    
 }
+
+
+
 
 function validatePhone(regex, phoneValue) {
     if (phoneValue === '') {

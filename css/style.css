@@ -314,7 +314,9 @@ a {
   align-items: center;
   max-width: 470px;
   width: 100%;
-  padding: 41px 40px;
+  min-height: 480px;
+  height: auto;
+  padding: 40px 40px;
   border: 1px solid #E0E0E0;
   background-color: #fff;
   transition: 0.2s;
@@ -383,6 +385,32 @@ a {
   background-color: #156963;
   color: #fff;
 }
+.form__headers {
+  display: none;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #E0E0E0;
+}
+
+.header__userID {
+  padding-right: 140px;
+}
+
+.header__title {
+  padding-right: 200px;
+}
+
+.posts__post {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #E0E0E0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.posts__title {
+  width: 400px;
+}
 
 .phone__span,
 .name__span {
@@ -398,6 +426,16 @@ a {
 
 .phone__span {
   bottom: 76px;
+}
+
+@media (max-width: 1160px) {
+  .slider__btn {
+    height: auto;
+  }
+
+  .featured-plants__items {
+    flex-wrap: wrap;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
