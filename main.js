@@ -73,16 +73,55 @@ const sendBtn = document.querySelector('send');
 
 const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
 
+const mess = `<span>Error</span>`
+
 
 
 document.querySelector('.send').onclick = (event) => {
     const name = document.querySelector('.name');
     const phone = document.querySelector('.phone');
+    const spanName = document.querySelector('.name__span');
+    const spanPhone = document.querySelector('.phone__span');
+
     event.preventDefault();
-    if(!regex.test(phone.value)) {
-        console.log('no')
+    
+    if(!validatePhone(regex, phone.value)) {
+        notValide(phone, spanPhone, 'Неверный формат номера')
     }
     else {
-        console.log('yes')
+        valide(phone, spanPhone, '')
     }
+
+    if(!validateName(name.value)) {
+        notValide(name, spanName, 'Имя должно содержать хотя бы 3 буквы')
+    }
+    else {
+        valide(name, spanName, '')
+    }
+}
+
+function validatePhone(regex, phoneValue) {
+    if (phoneValue === '') {
+        return false
+    }
+    return regex.test(phoneValue)
+}
+
+function validateName(nameValue) {
+        console.log(nameValue.length)
+        return nameValue.trim().length > 3
+    
+}
+
+function notValide(inp, el, mess) {
+    inp.classList.add('is-valid');
+    inp.classList.add('form__input--error');
+    el.innerHTML = mess;
+}
+
+function valide(inp, el, mess) {
+    inp.classList.remove('is-valid');
+    inp.classList.remove('form__input--error');
+    inp.classList.add('is-valid');
+    el.innerHTML = mess;
 }

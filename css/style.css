@@ -356,11 +356,15 @@ a {
   margin-bottom: 40px;
 }
 .form__input {
+  position: relative;
   max-width: 390px;
   width: 100%;
   padding: 9px 16px;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   border: 1px solid #E0E0E0;
+}
+.form__input--error {
+  border-color: red;
 }
 .form__btns {
   display: flex;
@@ -378,6 +382,22 @@ a {
 .form__btn--primary {
   background-color: #156963;
   color: #fff;
+}
+
+.phone__span,
+.name__span {
+  position: absolute;
+  left: 40px;
+  color: red;
+  font-size: 14px;
+}
+
+.name__span {
+  bottom: 132px;
+}
+
+.phone__span {
+  bottom: 76px;
 }
 
 /*# sourceMappingURL=style.css.map */
