@@ -178,7 +178,7 @@ a {
             top: 5px;
             color: $light-black;
             opacity: 0.5;
-            background-image: url(/img/icons/arrow-left.svg);
+            background-image: url(../img/icons/arrow-left.svg);
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -198,7 +198,7 @@ a {
             right: -37px;
             top: 5px;
             color: $light-black;
-            background-image: url(/img/icons/arrow-right.svg);
+            background-image: url(../img/icons/arrow-right.svg);
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -337,6 +337,7 @@ a {
         line-height: 20px;
         text-align: center;
         margin-bottom: 8px;
+        color: $black;
     }
 
     &__price {
@@ -345,6 +346,7 @@ a {
         line-height: 20px;
         text-align: center;
         margin-bottom: 8px;
+        color: $black;
     }
 
 }
@@ -401,7 +403,7 @@ a {
         height: 11px;
         border: none;
         background-color: $background-color;
-        background-image: url(/img/icons/exit.svg);
+        background-image: url(../img/icons/exit.svg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -414,7 +416,7 @@ a {
         margin-bottom: 19px;
         border-radius: 50%;
         background-color: $main-color;
-        background-image: url(/img/icons/location.svg);
+        background-image: url(../img/icons/location.svg);
         background-position: center;
         background-repeat: no-repeat;
 
